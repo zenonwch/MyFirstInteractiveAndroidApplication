@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setPrice(5);
         setContentView(R.layout.activity_main);
         display(quantity);
-        displayPrice(price);
+        displayMessage("");
     }
 
     /**
@@ -62,14 +62,6 @@ public class MainActivity extends AppCompatActivity {
             setQuantity(getQuantity() - 1);
         }
         display(getQuantity());
-    }
-
-    /**
-     * This method displays the given price on the screen.
-     */
-    private void displayPrice(final int number) {
-        final TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
     }
 
     /**
