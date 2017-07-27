@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">MyFirstInteractiveAndroidApplication</string>
+    <string name="app_name">Make order</string>
+    <string name="label_quantity">QUANTITY</string>
+    <string name="lable_minus_sign">-</string>
+    <string name="label_plus_sign">+</string>
+    <string name="label_price">PRICE</string>
+    <string name="label_order">ORDER</string>
 </resources>

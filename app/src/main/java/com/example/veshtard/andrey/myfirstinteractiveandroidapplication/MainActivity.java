@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import java.text.NumberFormat;
 import java.util.Locale;
 
 import static java.lang.String.format;
@@ -49,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     public void submitOrder(final View view) {
         display(getQuantity());
         final int total = getQuantity() * getPrice();
-        displayMessage("Total: " + NumberFormat.getCurrencyInstance().format(total));
+        displayMessage("Total: $" + total + "\nThank You!" );
     }
 
     public void increment(final View view) {
