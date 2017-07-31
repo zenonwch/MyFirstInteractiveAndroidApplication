@@ -9,9 +9,20 @@
         android:padding="16dp"
         >
 
+    <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/edit_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-5dp"
+            android:hint="@string/hint_edit_name"
+            android:inputType="text"
+            backgroundTint="@color/colorPrimary"
+            />
+
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="16dp"
             android:paddingBottom="16dp"
             android:text="@string/label_toppings"
             android:textSize="16sp"

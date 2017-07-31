@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Locale;
 
@@ -15,7 +17,7 @@ import static java.lang.String.format;
  */
 public class MainActivity extends AppCompatActivity {
     private int quantity;
-    private int price;
+    private int priceCoffee;
 
     public int getQuantity() {
         return quantity;
@@ -25,22 +27,22 @@ public class MainActivity extends AppCompatActivity {
         this.quantity = quantity;
     }
 
-    public int getPrice() {
-        return price;
+    public int getPriceCoffee() {
+        return priceCoffee;
     }
 
-    public void setPrice(final int price) {
-        this.price = price;
+    public void setPriceCoffee(final int priceCoffee) {
+        this.priceCoffee = priceCoffee;
     }
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setQuantity(1);
-        setPrice(5);
+        setPriceCoffee(5);
         setContentView(R.layout.activity_main);
         display(quantity);
-        displayMessage(format(Locale.getDefault(), "$%d", price));
+        displayMessage(format(Locale.getDefault(), "$%d", priceCoffee));
     }
 
     /**
@@ -50,27 +52,54 @@ public class MainActivity extends AppCompatActivity {
         display(getQuantity());
         final CheckBox cbWhippedCream = (CheckBox) findViewById(R.id.whipped_cream_check_box);
         final CheckBox cbChocolate = (CheckBox) findViewById(R.id.chocolate_check_box);
-        final int total = getQuantity() * getPrice();
         final StringBuilder sb = new StringBuilder("");
         final String lineSeparator = System.getProperty("line.separator");
 
-        if (cbWhippedCream.isChecked()) sb.append(format("Add whipped cream%s", lineSeparator));
-        if (cbChocolate.isChecked()) sb.append(format("Add chocolate%s", lineSeparator));
+        final EditText editTextUserName = (EditText) findViewById(R.id.edit_user_name);
+
+        if (editTextUserName != null) {
+            final String userName = editTextUserName.getText().toString().trim();
+
+            if (userName.isEmpty()) {
+                Toast.makeText(this, "Please fill in your name", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            sb.append(format("Order for %s%s", userName, lineSeparator));
+        }
 
         sb.append(format(Locale.getDefault(), "Quantity: %d%s", quantity, lineSeparator));
+
+        int priceToppings = 0;
+        if (cbWhippedCream.isChecked()) {
+            priceToppings += 1;
+            sb.append(format("with whipped cream%s", lineSeparator));
+        }
+        if (cbChocolate.isChecked()) {
+            priceToppings += 2;
+            sb.append(format("with chocolate%s", lineSeparator));
+        }
+
+        sb.append(lineSeparator);
+
+        final int total = quantity * (priceCoffee + priceToppings);
         sb.append(format(Locale.getDefault(), "Total: $%d%s", total, lineSeparator));
-        sb.append("Thank You!" );
+        sb.append("Thank You!");
 
         displayMessage(sb.toString());
     }
 
     public void increment(final View view) {
-        setQuantity(getQuantity() + 1);
+        if (getQuantity() < 10) {
+            setQuantity(getQuantity() + 1);
+        } else {
+            Toast.makeText(this, "Max available cups for one order is 10", Toast.LENGTH_SHORT).show();
+        }
         display(getQuantity());
     }
 
     public void decrement(final View view) {
-        if (getQuantity() > 0) {
+        if (getQuantity() > 1) {
             setQuantity(getQuantity() - 1);
         }
         display(getQuantity());

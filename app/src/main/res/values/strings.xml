@@ -9,4 +9,5 @@
     <string name="label_whipped_cream">Whipped cream</string>
     <string name="label_chocolate">Chocolate</string>
     <string name="initial_price">$5</string>
+    <string name="hint_edit_name">Name</string>
 </resources>
