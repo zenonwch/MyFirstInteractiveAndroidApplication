@@ -3,6 +3,7 @@ package com.example.veshtard.andrey.myfirstinteractiveandroidapplication;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.util.Locale;
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setPrice(5);
         setContentView(R.layout.activity_main);
         display(quantity);
-        displayMessage("");
+        displayMessage(format(Locale.getDefault(), "$%d", price));
     }
 
     /**
@@ -47,8 +48,20 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(final View view) {
         display(getQuantity());
+        final CheckBox cbWhippedCream = (CheckBox) findViewById(R.id.whipped_cream_check_box);
+        final CheckBox cbChocolate = (CheckBox) findViewById(R.id.chocolate_check_box);
         final int total = getQuantity() * getPrice();
-        displayMessage("Total: $" + total + "\nThank You!" );
+        final StringBuilder sb = new StringBuilder("");
+        final String lineSeparator = System.getProperty("line.separator");
+
+        if (cbWhippedCream.isChecked()) sb.append(format("Add whipped cream%s", lineSeparator));
+        if (cbChocolate.isChecked()) sb.append(format("Add chocolate%s", lineSeparator));
+
+        sb.append(format(Locale.getDefault(), "Quantity: %d%s", quantity, lineSeparator));
+        sb.append(format(Locale.getDefault(), "Total: $%d%s", total, lineSeparator));
+        sb.append("Thank You!" );
+
+        displayMessage(sb.toString());
     }
 
     public void increment(final View view) {
@@ -72,11 +85,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method
+     * This method displays messages
      */
     private void displayMessage(final String message) {
-        final TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(message);
+        final TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        orderSummaryTextView.setText(message);
     }
 
 }

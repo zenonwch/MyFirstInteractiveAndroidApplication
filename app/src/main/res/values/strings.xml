@@ -3,6 +3,10 @@
     <string name="label_quantity">QUANTITY</string>
     <string name="lable_minus_sign">-</string>
     <string name="label_plus_sign">+</string>
-    <string name="label_price">PRICE</string>
+    <string name="label_price">ORDER SUMMARY</string>
     <string name="label_order">ORDER</string>
+    <string name="label_toppings">TOPPINGS</string>
+    <string name="label_whipped_cream">Whipped cream</string>
+    <string name="label_chocolate">Chocolate</string>
+    <string name="initial_price">$5</string>
 </resources>
