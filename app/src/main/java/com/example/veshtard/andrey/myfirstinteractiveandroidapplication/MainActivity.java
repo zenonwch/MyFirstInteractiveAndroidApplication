@@ -20,6 +20,7 @@ import static java.lang.String.format;
  * This app displays an order form to order coffee.
  */
 public class MainActivity extends AppCompatActivity {
+    private static final int MAX_CUPS_PER_ORDER = 10;
     private int quantity;
     private int priceCoffee;
 
@@ -66,33 +67,33 @@ public class MainActivity extends AppCompatActivity {
             userName = editTextUserName.getText().toString().trim();
 
             if (userName.isEmpty()) {
-                Toast.makeText(this, "Please fill in your name", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.toast_fill_name), Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            sb.append(format("Order for %s%s", userName, lineSeparator));
+            sb.append(getString(R.string.label_orderer_name, userName)).append(lineSeparator);
         }
 
-        sb.append(format(Locale.getDefault(), "Quantity: %d%s", quantity, lineSeparator));
+        sb.append(getString(R.string.label_selected_quantity, quantity)).append(lineSeparator);
 
         int priceToppings = 0;
         if (cbWhippedCream.isChecked()) {
             priceToppings += 1;
-            sb.append(format("with whipped cream%s", lineSeparator));
+            sb.append(getString(R.string.label_with_wipped_cream)).append(lineSeparator);
         }
         if (cbChocolate.isChecked()) {
             priceToppings += 2;
-            sb.append(format("with chocolate%s", lineSeparator));
+            sb.append(getString(R.string.label_with_chocolate)).append(lineSeparator);
         }
 
         sb.append(lineSeparator);
 
         final int total = quantity * (priceCoffee + priceToppings);
-        sb.append(format(Locale.getDefault(), "Total: $%d%s", total, lineSeparator));
-        sb.append("Thank You!");
+        sb.append(getString(R.string.lable_total, total)).append(lineSeparator);
+        sb.append(getString(R.string.label_thank_you));
 
         try {
-            composeEmail(format("Order for %s", userName), sb.toString());
+            composeEmail(getString(R.string.mail_subject, userName), sb.toString());
             recreate();
         } catch (final ActivityNotFoundException ignored) {
             displayMessage(sb.toString());
@@ -103,7 +104,8 @@ public class MainActivity extends AppCompatActivity {
         if (getQuantity() < 10) {
             setQuantity(getQuantity() + 1);
         } else {
-            Toast.makeText(this, "Max available cups for one order is 10", Toast.LENGTH_SHORT).show();
+            final String text = getString(R.string.toast_max_cups, MAX_CUPS_PER_ORDER);
+            Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
         }
         display(getQuantity());
     }

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Make order</string>
     <string name="label_quantity">QUANTITY</string>
     <string name="lable_minus_sign">-</string>
@@ -10,4 +10,14 @@
     <string name="label_chocolate">Chocolate</string>
     <string name="initial_price">$5</string>
     <string name="hint_edit_name">Name</string>
+
+    <string name="label_thank_you">Thank You!</string>
+    <string name="toast_fill_name">Please fill in your name</string>
+    <string name="label_with_wipped_cream">with whipped cream</string>
+    <string name="label_with_chocolate">with chocolate</string>
+    <string name="label_orderer_name">Order for <xliff:g id="name" example="Test User">%s</xliff:g></string>
+    <string name="label_selected_quantity">Quantity: <xliff:g id="quantity: ">%d</xliff:g></string>
+    <string name="lable_total">Total: $<xliff:g id="total">%d</xliff:g></string>
+    <string name="mail_subject">Order for <xliff:g id="name">%s</xliff:g></string>
+    <string name="toast_max_cups">Max available cups for one order is <xliff:g id="maxCups">%d</xliff:g></string>
 </resources>

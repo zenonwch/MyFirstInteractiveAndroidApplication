@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Make order</string>
+    <string name="hint_edit_name">Имя</string>
+    <string name="label_chocolate">Шоколад</string>
+    <string name="label_order">ЗАКАЗАТЬ</string>
+    <string name="initial_price">$5</string>
+    <string name="label_price">ИТОГ ЗАКАЗА</string>
+    <string name="label_quantity">КОЛИЧЕСТВО</string>
+    <string name="label_thank_you">Спасибо!</string>
+    <string name="label_toppings">ДОБАВКИ</string>
+    <string name="label_whipped_cream">Взбитые сливки</string>
+    <string name="label_with_chocolate">с шоколадом</string>
+    <string name="label_with_wipped_cream">со взбитыми сливками</string>
+    <string name="label_orderer_name">Заказ для <xliff:g id="name" example="Вася Пупкин">%s</xliff:g></string>
+    <string name="lable_total">Итого: $<xliff:g id="total">%d</xliff:g></string>
+    <string name="mail_subject">Заказ для <xliff:g id="name">%s</xliff:g></string>
+    <string name="toast_fill_name">Пожалуйста, введите имя</string>
+    <string name="toast_max_cups">В одном заказе не более <xliff:g id="maxCups">%d</xliff:g> чашек</string>
+    <string name="lable_minus_sign">-</string>
+    <string name="label_plus_sign">+</string>
+    <string name="label_selected_quantity">Количество: <xliff:g id="quantity: ">%d</xliff:g></string>
+</resources>
