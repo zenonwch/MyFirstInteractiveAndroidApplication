@@ -1,7 +1,10 @@
 package com.example.veshtard.andrey.myfirstinteractiveandroidapplication;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -56,9 +59,10 @@ public class MainActivity extends AppCompatActivity {
         final String lineSeparator = System.getProperty("line.separator");
 
         final EditText editTextUserName = (EditText) findViewById(R.id.edit_user_name);
+        String userName = "";
 
         if (editTextUserName != null) {
-            final String userName = editTextUserName.getText().toString().trim();
+            userName = editTextUserName.getText().toString().trim();
 
             if (userName.isEmpty()) {
                 Toast.makeText(this, "Please fill in your name", Toast.LENGTH_SHORT).show();
@@ -87,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
         sb.append("Thank You!");
 
         displayMessage(sb.toString());
+        composeEmail(format("Order for %s", userName), sb.toString());
     }
 
     public void increment(final View view) {
@@ -119,6 +124,19 @@ public class MainActivity extends AppCompatActivity {
     private void displayMessage(final String message) {
         final TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
         orderSummaryTextView.setText(message);
+    }
+
+    private void composeEmail(final String subject, final String body) {
+        final Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setType("text/html");
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, body);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            Log.e("Invoke email intent", "No such activity");
+        }
     }
 
 }
