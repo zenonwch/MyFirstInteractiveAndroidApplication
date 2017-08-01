@@ -16,6 +16,7 @@
             android:layout_marginLeft="-5dp"
             android:hint="@string/hint_edit_name"
             android:inputType="text"
+            android:saveEnabled="false"
             backgroundTint="@color/colorPrimary"
             />
 
@@ -37,6 +38,7 @@
             android:paddingLeft="24dp"
             android:text="@string/label_whipped_cream"
             android:textSize="16sp"
+            android:saveEnabled="false"
             />
 
     <CheckBox
@@ -47,6 +49,7 @@
             android:paddingLeft="24dp"
             android:text="@string/label_chocolate"
             android:textSize="16sp"
+            android:saveEnabled="false"
             />
 
     <TextView

@@ -1,5 +1,6 @@
 package com.example.veshtard.andrey.myfirstinteractiveandroidapplication;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -90,8 +91,12 @@ public class MainActivity extends AppCompatActivity {
         sb.append(format(Locale.getDefault(), "Total: $%d%s", total, lineSeparator));
         sb.append("Thank You!");
 
-        displayMessage(sb.toString());
-        composeEmail(format("Order for %s", userName), sb.toString());
+        try {
+            composeEmail(format("Order for %s", userName), sb.toString());
+            recreate();
+        } catch (final ActivityNotFoundException ignored) {
+            displayMessage(sb.toString());
+        }
     }
 
     public void increment(final View view) {
@@ -136,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         } else {
             Log.e("Invoke email intent", "No such activity");
+            throw new ActivityNotFoundException();
         }
     }
 
