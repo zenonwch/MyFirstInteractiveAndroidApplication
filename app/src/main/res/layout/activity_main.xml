@@ -21,13 +21,8 @@
             />
 
     <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
+            style="@style/HeaderTextStyle"
             android:text="@string/label_toppings"
-            android:textSize="16sp"
-            android:textColor="#000000"
             />
     
     <CheckBox
@@ -53,13 +48,8 @@
             />
 
     <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
+            style="@style/HeaderTextStyle"
             android:text="@string/label_quantity"
-            android:textSize="16sp"
-            android:textColor="#000000"
             />
 
     <LinearLayout
@@ -104,20 +94,13 @@
     </LinearLayout>
 
     <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="16dp"
+            style="@style/HeaderTextStyle"
             android:text="@string/label_price"
-            android:textSize="16sp"
-            android:textColor="#000000"
             />
 
     <TextView
             android:id="@+id/order_summary_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
+            style="@style/HeaderTextStyle"
             android:text="@string/initial_price"
             android:textSize="16sp"
             android:textColor="#000000"
@@ -127,7 +110,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/label_order"
-            android:textSize="16sp"
+            android:textSize="15sp"
             android:textColor="#000000"
             android:onClick="submitOrder"
             android:layout_marginStart="-5dp"
