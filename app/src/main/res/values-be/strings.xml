@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Make order</string>
+    <string name="hint_edit_name">Iмя</string>
+    <string name="initial_price">$5</string>
+    <string name="label_plus_sign">+</string>
+    <string name="lable_minus_sign">-</string>
+    <string name="label_chocolate">Шакалад</string>
+    <string name="label_order">ЗАКАЗАЦЬ</string>
+    <string name="label_price">РЭЗЮМЭ ЗАКАЗУ</string>
+    <string name="label_quantity">КОЛЬКАСЦЬ</string>
+    <string name="label_thank_you">Дзякуй!</string>
+    <string name="label_toppings">ДАДАТКI</string>
+    <string name="label_whipped_cream">Узбітыя сліўкі</string>
+    <string name="label_with_chocolate">з шакаладам</string>
+    <string name="label_with_wipped_cream">з узбітымi сліўкамі</string>
+    <string name="toast_fill_name">Калi ласка, увядзiце iмя</string>
+    <string name="label_orderer_name">Заказ для <xliff:g id="name" example="Вася Пупкiн">%s</xliff:g></string>
+    <string name="label_selected_quantity">Колькасць: <xliff:g id="quantity: ">%d</xliff:g></string>
+    <string name="lable_total">Разам: $<xliff:g id="total">%d</xliff:g></string>
+    <string name="mail_subject">Заказ для <xliff:g id="name">%s</xliff:g></string>
+    <string name="toast_max_cups">У адным заказе не больш <xliff:g id="maxCups">%d</xliff:g> кубкаў</string>
+</resources>
